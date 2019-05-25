@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\category;
 
 class categoryController extends Controller
 {
@@ -26,6 +27,8 @@ class categoryController extends Controller
     public function create()
     {
         //
+        return view('back.category.create');
+
     }
 
     /**
@@ -36,7 +39,27 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required',           
+            'files' => 'required',
+        ]);
+
+        $image =  $request->file('files');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('img');
+        $new =  $image->move($destinationPath, $input['imagename']);
+
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $category = new category();
+        $category->title = $title;
+        $category->description = $description;
+        $category->img = $input['imagename'];
+        $category->save();
+        \Session::flash('add','add success');
+        return redirect('category/create');
+
     }
 
     /**

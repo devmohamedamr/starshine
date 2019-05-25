@@ -58,7 +58,7 @@
 			<div class="cd-auto-hide-header listar-haslayout">
 				<div class="container-fluid">
 					<div class="row">
-						<strong class="listar-logo"><a href="index-2.html"><img src="images/logo.png" alt="company logo here"></a></strong>
+					<strong class="listar-logo"><a href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="company logo here"></a></strong>
 						<nav class="listar-addnav">
 							<ul>
 								<li>
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 			<div id="listar-sidebarwrapper" class="listar-sidebarwrapper">
-				<strong class="listar-logo"><a href="index-2.html"><img src="images/logo.png" alt="company logo here"></a></strong>
+			<strong class="listar-logo"><a href="index-2.html"><img src="{{asset('images/logo.png')}}" alt="company logo here"></a></strong>
 				<span id="listar-btnmenutoggle" class="listar-btnmenutoggle"><i class="fa fa-angle-left"></i></span>
 				<div id="listar-verticalscrollbar" class="listar-verticalscrollbar">
 					<nav id="listar-navdashboard" class="listar-navdashboard">
@@ -182,15 +182,20 @@
 			<!--************************************
 					Dashboard Banner Start
 			*************************************-->
-			<div class="listar-dashboardbanner">
+
 				<ol class="listar-breadcrumb">
 					<li><a href="javascript:void(0);">Home</a></li>
 					<li class="listar-active">Dashboard</li>
 				</ol>
+			<div class="listar-dashboardbanner">
 
-            	@yield('content')
+
+			
+			@yield('content')
 
 			</div>
+
+			
 			<!--************************************
 					Dashboard Banner End
 			*************************************-->	
